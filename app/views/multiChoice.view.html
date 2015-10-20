@@ -1,0 +1,18 @@
+<div class="personContainer">
+  <div class="waiting" ng-show="mc.waiting">Wait!</div>
+  <div class="pictureContainer">
+    <h2>Who is this?</h2>
+    <img class="picture" ng-src="media/empPhotos/{{multiChoice.person.photo}}" />
+
+    <div class="feedback">
+    <div class="correct" ng-show="multiChoice.answerStatus == 'correct'">Right!</div>
+    <div class="incorrect" ng-show="multiChoice.answerStatus == 'incorrect'">Wrong!  It's {{multiChoice.person.name}}</div>
+  </div>
+  </div>
+
+  <div class="choicesContainer">
+    <ul class="choices">
+      <li class="choice" ng-repeat="choice in multiChoice.choices" ng-click="multiChoice.checkAnswer(this.choice)" ng-hide="multiChoice.answerChosen">{{choice.name}}</li>
+    </ul>
+  </div>
+</div>
